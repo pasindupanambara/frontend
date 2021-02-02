@@ -1,13 +1,17 @@
 
-import React from 'react';
+import React, { Component } from 'react';
+import GlobalStyle from './globalStyles';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import Home from "./components/pages/HomePage/Home";
+import Footer from './components/Footer/Footer';
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
 
+
 function App() {
   return (<Router>
+    <GlobalStyle/>
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
@@ -20,22 +24,28 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/"}>Home</Link>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
-
-      <div className="outer">
-        <div className="inner">
+      <Switch><Route exact path='/' exact component={Home} /></Switch>
+      
           <Switch>
-            <Route exact path='/' component={Login} />
+            
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={SignUp} />
           </Switch>
-        </div>
-      </div>
-    </div></Router>
+        
+        
+     
+    <Footer/>
+    </div>
+    </Router>
   );
 }
 
-export default App;
+
+export default App; 
