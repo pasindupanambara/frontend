@@ -7,7 +7,8 @@ import Home from "./components/pages/HomePage/Home";
 import Footer from './components/Footer/Footer';
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
-
+import District from "./components/district.component";
+import Upload from "./components/upload.component";
 
 function App() {
   return (<Router>
@@ -27,6 +28,12 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to={"/"}>Home</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/district"}>Pick Your District</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to = {"/upload"}>Upload Your Prescription</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -37,6 +44,8 @@ function App() {
             
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={SignUp} />
+            <Route path = "/district" component = {District}/>
+            <Route path = "/upload" component={Upload}/>
           </Switch>
         
         
